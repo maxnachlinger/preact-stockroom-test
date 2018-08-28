@@ -1,0 +1,10 @@
+built-config/
+server/public/
+*.styl
+*.log
+*.png
+*.jpg
+*.html
+server/keys/
+server/assets/
+.DS_Store
