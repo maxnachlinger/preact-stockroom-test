@@ -48,7 +48,7 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: '[hash].[name].css',
     }),
     new OptimizeCssAssetsPlugin(),
     new HtmlWebpackPlugin({
