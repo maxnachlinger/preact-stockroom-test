@@ -32,7 +32,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js?x)$/,
         include: srcPath,
         loader: 'babel-loader',
       }
@@ -44,6 +44,8 @@ module.exports = {
         NODE_ENV: JSON.stringify('development')
       }
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Preact / Unistore Test'
+    }),
   ]
 };
