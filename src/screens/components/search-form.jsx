@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { SearchStatus } from '../../consts';
 
 export class SearchForm extends Component {
   render() {

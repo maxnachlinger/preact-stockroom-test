@@ -3,11 +3,12 @@ import { connect } from 'unistore/preact';
 import { SearchResults } from './components/search-results';
 import { SearchForm } from './components/search-form';
 import { SearchStatus } from '../consts';
+import { ProcessingScreen } from './components/processing';
 
 const App = ({ results = [], search, searchStatus }) => (
   <div>
     <SearchForm {...{ search }} />
-    <p>{searchStatus === SearchStatus.Ok ? '' : searchStatus}</p>
+    <p>{searchStatus === SearchStatus.Processing ? (<ProcessingScreen/>) : searchStatus}</p>
     <SearchResults {...{ results }} />
   </div>
 );

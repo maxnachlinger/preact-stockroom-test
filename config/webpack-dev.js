@@ -1,11 +1,13 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const {
   srcPath,
   outputPath,
   publicPath,
   devJsBundleName,
+  devCssBundleName,
   devServerHost,
   devServerPort,
 } = require('./client');
@@ -27,14 +29,21 @@ module.exports = {
     host: devServerHost,
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
   },
   module: {
     rules: [
       {
-        test: /\.(js?x)$/,
+        test: /\.js?x$/,
         include: srcPath,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
       },
       {
         test: /\.worker\.js$/,
@@ -47,6 +56,9 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: devCssBundleName,
     }),
     new HtmlWebpackPlugin({
       title: 'Preact / Unistore Test',
