@@ -1,12 +1,10 @@
 import { h, render } from 'preact';
 import { Provider } from 'unistore/preact';
-import createStore from 'unistore';
+import { setupStore } from './store';
 import App from './App';
 
-const store = createStore({ count: 0 });
-
 render(
-  <Provider store={store}>
+  <Provider store={setupStore(window)}>
     <App />
   </Provider>,
   document.body,

@@ -13,7 +13,7 @@ const {
 module.exports = {
   context: srcPath,
   entry: {
-    app: `${srcPath}/index.jsx`
+    app: `${srcPath}/index.jsx`,
   },
   mode: 'development',
   output: {
@@ -35,17 +35,21 @@ module.exports = {
         test: /\.(js?x)$/,
         include: srcPath,
         loader: 'babel-loader',
-      }
-    ]
+      },
+      {
+        test: /\.worker\.js$/,
+        use: { loader: 'worker-loader' },
+      },
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
+        NODE_ENV: JSON.stringify('development'),
+      },
     }),
     new HtmlWebpackPlugin({
-      title: 'Preact / Unistore Test'
+      title: 'Preact / Unistore Test',
     }),
-  ]
+  ],
 };
