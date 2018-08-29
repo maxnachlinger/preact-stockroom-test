@@ -1,10 +1,10 @@
 import { h, render } from 'preact';
 import { Provider } from 'unistore/preact';
-import store from './store';
+import { setupStore } from './store';
 import App from './App';
 
 render(
-  <Provider store={store}>
+  <Provider store={setupStore(window)}>
     <App />
   </Provider>,
   document.body,

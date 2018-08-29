@@ -1,13 +1,11 @@
-let store;
-
 const interopRequire = (m) => m.default || m;
 
-if (!window.Worker) {
-  let createStore = interopRequire(require('stockroom/inline'));
-  store = createStore(interopRequire(require('./store-worker')));
-} else {
-  let createStore = interopRequire(require('stockroom'));
-  store = createStore(require('worker-loader!./store-worker')());
-}
+export const setupStore = (win) => {
+  if (!win.Worker) {
+    const createStore = interopRequire(require('stockroom/inline'));
+    return createStore(interopRequire(require('./store-worker')));
+  }
 
-export default store;
+  const createStore = interopRequire(require('stockroom'));
+  return createStore(require('worker-loader!./store-worker')());
+};
