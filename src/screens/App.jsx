@@ -5,16 +5,16 @@ import { SearchForm } from './components/search-form';
 import { SearchStatus } from '../consts';
 import { ProcessingScreen } from './components/processing';
 
-const App = ({ results = [], search, searchStatus }) => (
+const App = ({ results = [], searchStatus, search }) => (
   <div>
     <SearchForm {...{ search }} />
-    <p>{searchStatus === SearchStatus.Processing ? <ProcessingScreen /> : searchStatus}</p>
+    {searchStatus === SearchStatus.Processing && <ProcessingScreen />}
     <SearchResults {...{ results }} />
   </div>
 );
 
 export default connect(
-  'count,results,searchStatus',
+  'results,searchStatus',
   {
     search: 'search',
   },
