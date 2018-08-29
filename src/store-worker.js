@@ -1,8 +1,8 @@
-import createStore from 'stockroom/worker';
-import actions from './actions';
+import createStore from "stockroom/worker";
+import { actions } from "./actions/index";
 
 const store = createStore({
-  count: 0,
+  count: 0
 });
 
 store.registerActions(actions);

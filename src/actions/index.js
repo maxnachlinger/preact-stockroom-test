@@ -1,5 +1,5 @@
 // If actions is a function, it gets passed the store:
-const actions = (store) => ({
+export const actions = (store) => ({
   // Actions can just return a state update:
   increment: ({ count }) => ({ count: count + 1 }),
 
@@ -23,5 +23,3 @@ const actions = (store) => ({
     }, 100);
   },
 });
-
-export default actions;
