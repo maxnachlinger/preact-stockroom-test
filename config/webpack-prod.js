@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const { srcPath, outputPath, publicPath, devJsBundleName } = require('./client');
+const { srcPath, outputPath, publicPath } = require('./client');
 
 module.exports = {
   context: srcPath,
