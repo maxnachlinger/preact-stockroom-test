@@ -19,6 +19,9 @@ module.exports = {
     publicPath,
     filename: devJsBundleName,
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
