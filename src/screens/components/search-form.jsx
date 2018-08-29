@@ -5,12 +5,13 @@ export class SearchForm extends Component {
     const { search } = this.props;
     const { term } = this.state;
 
-    const searchEnabled = term && term.length > 2;
+    const searchEnabled = term && term.length >= 2;
     const executeSearch = () => (searchEnabled ? search(term) : null);
 
     return (
       <div>
         <input
+          autofocus
           onChange={(event) => this.setState(() => ({ term: event.target.value }))}
           onKeyUp={(event) =>
             event.key === 'Enter'
@@ -25,5 +26,3 @@ export class SearchForm extends Component {
     );
   }
 }
-
-export default SearchForm;

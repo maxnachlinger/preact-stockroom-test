@@ -2,7 +2,7 @@ import { h, render } from 'preact';
 import { connect } from 'unistore/preact';
 import { SearchResults } from './components/search-results';
 import { SearchForm } from './components/search-form';
-import { SearchStatus } from "../consts";
+import { SearchStatus } from '../consts';
 
 const App = ({ results = [], search, searchStatus }) => (
   <div>
