@@ -1,20 +1,20 @@
 import { h, render } from 'preact';
 import { connect } from 'unistore/preact';
+import { SearchResults } from './components/search-results';
+import { SearchForm } from './components/search-form';
+import { SearchStatus } from "../consts";
 
-const App = ({ count, increment, increment2, incrementAndLog, incrementAsync }) => (
+const App = ({ results = [], search, searchStatus }) => (
   <div>
-    <p>Count: {count}</p>
-    <button onClick={increment}>increment</button>
-    <button onClick={incrementAndLog}>incrementAndLog</button>
-    <button onClick={incrementAsync}>incrementAsync</button>
+    <SearchForm {...{ search }} />
+    <p>{searchStatus === SearchStatus.Ok ? '' : searchStatus}</p>
+    <SearchResults {...{ results }} />
   </div>
 );
 
 export default connect(
-  'count',
+  'count,results,searchStatus',
   {
-    increment: 'increment',
-    incrementAndLog: 'incrementAndLog',
-    incrementAsync: 'incrementAsync',
+    search: 'search',
   },
 )(App);

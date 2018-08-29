@@ -1,5 +1,9 @@
+import { search } from './search';
+
 // If actions is a function, it gets passed the store:
 export const actions = (store) => ({
+  search: (...args) => search(store, ...args),
+
   // Actions can just return a state update:
   increment: ({ count }) => ({ count: count + 1 }),
 
