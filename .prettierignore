@@ -1,10 +1,6 @@
-built-config/
-server/public/
-*.styl
-*.log
-*.png
-*.jpg
+dist
 *.html
-server/keys/
-server/assets/
 .DS_Store
+.idea
+.gitignore
+.prettierignore
