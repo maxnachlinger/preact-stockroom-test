@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const { srcPath, outputPath, publicPath } = require('./client');
 
@@ -49,7 +50,8 @@ module.exports = {
     }),
     new OptimizeCssAssetsPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Preact / Unistore Test',
+      title: 'Preact / Stockroom Test',
     }),
+    new CompressionPlugin(),
   ],
 };
